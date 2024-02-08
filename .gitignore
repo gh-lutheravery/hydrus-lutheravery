@@ -1,0 +1,84 @@
+# useful template here https://github.com/github/gitignore/blob/main/Python.gitignore
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+### IDE's
+
+## IntelliJ and related IDE's (RubyMine, PhpStorm, AppCode, PyCharm)
+*.iml
+
+# Directory-based project format:
+.idea/
+
+## Eclipse
+*.pydevproject
+.metadata
+.gradle
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+
+# Eclipse Core
+.project
+
+# External tool builders
+.externalToolBuilders/
+
+# Locally stored "Eclipse launch configurations"
+*.launch
+
+### Some rules to keep out installation-specific stuff that's generated when Hydrus is run from source
+logs/
+crash.log
+
+# user's db files
+# I nonetheless recommend you use the -d switch to put your db somewhere else if you run and update from git source
+/db/*.db
+/db/*.db-shm
+/db/*.db-wal
+/db/*.crt
+/db/*.key
+/db/*.log
+/db/*.conf
+/db/client_running
+/db/server_running
+/db/client_files/
+/db/server_files/
+/db/missing_and_invalid_files/
+
+# in case user adds their own
+/bin/ffmpeg.exe
+/bin/ffmpeg
+/mpv-1.dll
+/mpv-2.dll
+/libmpv-2.dll
+/sqlite3.dll
+
+# Environments
+.env
+.venv
+env/
+venv/
+ENV/
+env.bak/
+venv.bak/
+
+# User-changeable files
+/client-user.bat
+/client-user.sh
+/client-user.command
+/hydrus_client-user.bat
+/hydrus_client-user.sh
+/hydrus_client-user.command
+
+# docs builds
+/site/
+/help/
