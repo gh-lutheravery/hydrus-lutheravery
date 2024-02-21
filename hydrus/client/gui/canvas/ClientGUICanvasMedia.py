@@ -2123,7 +2123,14 @@ class MediaContainer( QW.QWidget ):
                 
                 self._media_window.SeekDelta( direction, duration_ms )
                 
+                
+    def SpeedSafe( self, speed ):
+        
+        if self._media is not None:
             
+            if self.CurrentlyPresentingMediaWithDuration():
+                
+                self._media_window.SpeedSafe( speed )
         
     
     def SetBackgroundColourGenerator( self, background_colour_generator ):
