@@ -339,7 +339,8 @@ simple_enum_to_str_lookup = {
     SIMPLE_GLOBAL_FORCE_ANIMATION_SCANBAR_SHOW : 'force the animation scanbar to show (flip on/off)',
     SIMPLE_OPEN_COMMAND_PALETTE : 'open the command palette',
     SIMPLE_MOVE_THUMBNAIL_FOCUS : 'move the thumbnail focus',
-    SIMPLE_SELECT_FILES : 'select files'
+    SIMPLE_SELECT_FILES : 'select files',
+    SIMPLE_SLOW_SPEED_MEDIA : 'f u hydrusdev'
     }
 
 legacy_simple_str_to_enum_lookup = {
