@@ -510,7 +510,7 @@ def GetDefaultShortcuts():
     
     media_viewer.SetCommand(
         ClientGUIShortcuts.Shortcut( ClientGUIShortcuts.SHORTCUT_TYPE_KEYBOARD_CHARACTER, ord( 'O' ), ClientGUIShortcuts.SHORTCUT_PRESS_TYPE_PRESS, [ ] ),
-        CAC.ApplicationCommand.STATICCreateSimpleCommand( CAC.SIMPLE_SLOW_SPEED_MEDIA, simple_data = ( -0.25 ) ) 
+        CAC.ApplicationCommand.STATICCreateSimpleCommand( CAC.SIMPLE_SLOW_SPEED_MEDIA, simple_data = ( 0.25 ) ) 
     )
     
     media_viewer.SetCommand(
