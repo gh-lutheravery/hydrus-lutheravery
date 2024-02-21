@@ -261,6 +261,9 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
         self._disallow_seek_on_this_file = False
         self._have_shown_human_error_on_this_file = False
         
+        # gamer time
+        self._disallow_speed_on_this_file = False
+        
         self._times_to_play_animation = 0
         
         self._current_seek_to_start_count = 0
@@ -732,6 +735,10 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
                 
                 self.PausePlay()
                 
+            elif action == CAC.SIMPLE_SLOW_SPEED_MEDIA:
+                
+                self.SpeedSafe(-0.25)
+                
             elif action == CAC.SIMPLE_MEDIA_SEEK_DELTA:
                 
                 ( direction, duration_ms ) = command.GetSimpleData()
@@ -807,7 +814,70 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
             # on some files, this seems to fail with a SystemError lmaoooo
             # with the same elegance, we will just pass all errors
             
+            
+    def Speed( self, speed_float ):
         
+        if self._currently_in_media_load_error_state:
+            
+            return
+            
+        
+        if not self._file_header_is_loaded:
+            
+            return
+            
+        
+        if self._disallow_speed_on_this_file:
+            
+            return
+        
+        try:
+            
+            self._player.speed = speed_float
+            
+        except:
+            
+            self._disallow_speed_on_this_file = True
+            
+            # shucks
+            
+            
+            
+    def SpeedSafe( self, speed_float ):
+        
+        if self._media is None:
+            
+            return
+            
+        
+        if self._currently_in_media_load_error_state:
+            
+            return
+            
+        
+        if not self._file_header_is_loaded:
+            
+            return
+            
+        
+        try:
+            
+            current_timestamp_s = self._player.time_pos
+            
+        except mpv.ShutdownError:
+            
+            # libmpv core probably shut down
+            return
+            
+        
+        
+        if current_timestamp_s is None:
+            
+            return
+            
+        
+        self.Speed( speed_float )
+    
     
     def SeekDelta( self, direction, duration_ms ):
         

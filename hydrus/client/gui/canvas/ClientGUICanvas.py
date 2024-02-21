@@ -719,7 +719,16 @@ class Canvas( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
             
         
         self._media_container.SeekDelta( direction, duration_ms )
+    
+    
+    def _SpeedDeltaCurrentMedia( self, direction, duration_ms ):
         
+        if self._current_media is None:
+            
+            return
+            
+        
+        self._media_container.SpeedDelta( direction, duration_ms )
     
     def _ShowMediaInNewPage( self ):
         
