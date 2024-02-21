@@ -737,7 +737,9 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
                 
             elif action == CAC.SIMPLE_SLOW_SPEED_MEDIA:
                 
-                self.SpeedSafe(-0.25)
+                ( speed ) = command.GetSimpleData()
+                
+                self.SpeedSafe(speed)
                 
             elif action == CAC.SIMPLE_MEDIA_SEEK_DELTA:
                 
