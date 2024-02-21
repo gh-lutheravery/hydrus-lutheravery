@@ -721,14 +721,14 @@ class Canvas( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
         self._media_container.SeekDelta( direction, duration_ms )
     
     
-    def _SpeedDeltaCurrentMedia( self, direction, duration_ms ):
+    def _SpeedSafeCurrentMedia( self, speed ):
         
         if self._current_media is None:
             
             return
             
         
-        self._media_container.SpeedDelta( direction, duration_ms )
+        self._media_container.SpeedSafe( speed )
     
     def _ShowMediaInNewPage( self ):
         
@@ -1139,6 +1139,13 @@ class Canvas( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
                 ( direction, ms ) = command.GetSimpleData()
                 
                 self._SeekDeltaCurrentMedia( direction, ms )
+            
+            
+            elif action == CAC.SIMPLE_SLOW_SPEED_MEDIA:
+                
+                ( speed ) = command.GetSimpleData()
+                
+                self._SpeedSafeCurrentMedia(speed, speed)
                 
             elif action == CAC.SIMPLE_MOVE_ANIMATION_TO_PREVIOUS_FRAME:
                 
