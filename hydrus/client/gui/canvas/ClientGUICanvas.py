@@ -1143,9 +1143,9 @@ class Canvas( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
             
             elif action == CAC.SIMPLE_SLOW_SPEED_MEDIA:
                 
-                ( speed ) = command.GetSimpleData()
+                speed = command.GetSimpleData()
                 
-                self._SpeedSafeCurrentMedia(speed, speed)
+                self._SpeedSafeCurrentMedia(speed)
                 
             elif action == CAC.SIMPLE_MOVE_ANIMATION_TO_PREVIOUS_FRAME:
                 
