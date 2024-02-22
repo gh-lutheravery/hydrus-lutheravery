@@ -471,6 +471,22 @@ class SimpleSubPanel( QW.QWidget ):
         
         #
         
+        self._speed_panel = QW.QWidget( self )
+        
+        self._speed_amount = ClientGUICommon.BetterSpinBox( self._seek_panel, min=0.01, max=0.99, width = 60 )
+        self._speed_amount.setValue( 0.25 )
+        
+        #
+        
+        hbox = QP.HBoxLayout()
+        
+        QP.AddToLayout( hbox, self._speed_amount, CC.FLAGS_CENTER )
+        QP.AddToLayout( hbox, ClientGUICommon.BetterStaticText( self._seek_panel, label = ' 1 is normal' ), CC.FLAGS_CENTER )
+        
+        self._speed_panel.setLayout( hbox )
+        
+        #
+        
         self._thumbnail_move_panel = QW.QWidget( self )
         
         choices = [ ( CAC.selection_status_enum_to_str_lookup[ s ], s ) for s in [ CAC.SELECTION_STATUS_NORMAL, CAC.SELECTION_STATUS_SHIFT ] ]
