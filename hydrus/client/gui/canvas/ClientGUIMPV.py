@@ -864,7 +864,7 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
         
         try:
             
-            current_timestamp_s = self._player.time_pos
+            current_speed = self._player.speed
             
         except mpv.ShutdownError:
             
@@ -873,12 +873,19 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
             
         
         
-        if current_timestamp_s is None:
+        if current_speed is None:
             
             return
-            
         
-        self.Speed( speed_float )
+        
+        if current_speed != 1.0:
+            
+            # reset speed on second key push
+            self.Speed( 1.0 )
+            
+            
+        else:
+            self.Speed( speed_float )
     
     
     def SeekDelta( self, direction, duration_ms ):
