@@ -550,6 +550,36 @@ class BetterSpinBox( QW.QSpinBox ):
             
             self.setMinimumWidth( width )
             
+            
+class BetterDoubleSpinBox( QW.QDoubleSpinBox ):
+    
+    def __init__( self, parent: QW.QWidget, initial = None, min = None, max = None, width = None, precision = None ):
+        
+        QW.QDoubleSpinBox.__init__( self, parent )
+        
+        if min is not None:
+            
+            self.setMinimum( min )
+            
+        
+        if max is not None:
+            
+            self.setMaximum( max )
+            
+        
+        if initial is not None:
+            
+            self.setValue( initial )
+            
+        
+        if width is not None:
+            
+            self.setMinimumWidth( width )
+            
+        if precision is not None:
+            
+            self.setDecimals( precision )
+            
         
     
 class ButtonWithMenuArrow( QW.QToolButton ):
