@@ -588,6 +588,12 @@ class SimpleSubPanel( QW.QWidget ):
                 ms = self._seek_duration_ms.value() + ( 1000 * s )
                 
                 simple_data = ( direction, ms )
+            
+            elif action == CAC.SIMPLE_SLOW_SPEED_MEDIA:
+                
+                speed = self._speed_amount.value()
+                
+                simple_data = speed 
                 
             elif action == CAC.SIMPLE_MOVE_THUMBNAIL_FOCUS:
                 
