@@ -841,8 +841,7 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
             
             self._disallow_speed_on_this_file = True
             
-            # shucks
-            
+            # not sure if i need this or not
             
             
     def SpeedSafe( self, speed_float ):
@@ -886,6 +885,7 @@ class MPVWidget( CAC.ApplicationCommandProcessorMixin, QW.QWidget ):
             
         else:
             self.Speed( speed_float )
+    
     
     
     def SeekDelta( self, direction, duration_ms ):
