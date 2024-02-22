@@ -473,7 +473,7 @@ class SimpleSubPanel( QW.QWidget ):
         
         self._speed_panel = QW.QWidget( self )
         
-        self._speed_amount = ClientGUICommon.BetterSpinBox( self._speed_panel, min=0.01, max=0.99, width = 60 )
+        self._speed_amount = ClientGUICommon.BetterSpinBox( self._speed_panel, min=0.01, max=0.99, width = 50 )
         self._speed_amount.setValue( 0.25 )
         
         #
@@ -481,7 +481,7 @@ class SimpleSubPanel( QW.QWidget ):
         hbox = QP.HBoxLayout()
         
         QP.AddToLayout( hbox, self._speed_amount, CC.FLAGS_CENTER )
-        QP.AddToLayout( hbox, ClientGUICommon.BetterStaticText( self._speed_panel, label = ' 1 is normal' ), CC.FLAGS_CENTER )
+        QP.AddToLayout( hbox, ClientGUICommon.BetterStaticText( self._speed_panel, label = ' 1 is normal speed' ), CC.FLAGS_CENTER )
         
         self._speed_panel.setLayout( hbox )
         
