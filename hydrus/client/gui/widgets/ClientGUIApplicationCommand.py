@@ -560,6 +560,7 @@ class SimpleSubPanel( QW.QWidget ):
         
         self._duplicates_type_panel.setVisible( action == CAC.SIMPLE_SHOW_DUPLICATES )
         self._seek_panel.setVisible( action == CAC.SIMPLE_MEDIA_SEEK_DELTA )
+        self._speed_panel.setVisible( action == CAC.SIMPLE_SLOW_SPEED_MEDIA )
         self._thumbnail_move_panel.setVisible( action == CAC.SIMPLE_MOVE_THUMBNAIL_FOCUS )
         self._file_filter_panel.setVisible( action == CAC.SIMPLE_SELECT_FILES )
         
